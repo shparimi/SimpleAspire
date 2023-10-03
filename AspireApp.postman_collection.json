@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "b7906d35-35d3-4b87-9467-3764a6a8f59a",
+		"name": "AspireApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30167054"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{aspireHost}}",
+					"host": [
+						"{{aspireHost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserSignUp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"password\":\"test1234\",\r\n   \"role\":\"CUSTOMER\",\r\n   \"email\":\"abc9@abc.com\",\r\n   \"username\":\"test9\"\r\n}"
+				},
+				"url": {
+					"raw": "{{aspireHost}}/signup",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ManagerSignUp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"password\":\"test1234\",\r\n   \"role\":\"manager\",\r\n   \"email\":\"abc10@abc.com\",\r\n   \"username\":\"test10\"\r\n}"
+				},
+				"url": {
+					"raw": "{{aspireHost}}/signup",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserSignIn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"test9\",\r\n    \"password\":\"test1234\"\r\n}"
+				},
+				"url": {
+					"raw": "{{aspireHost}}/signin",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ManagerSignIn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"test10\",\r\n    \"password\":\"test1234\"\r\n}"
+				},
+				"url": {
+					"raw": "{{aspireHost}}/signin",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplyLoan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{userJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\":10000,\r\n    \"term\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{aspireHost}}/user/{{userId}}/applyLoan",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{userId}}",
+						"applyLoan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserLoans",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{userJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{aspireHost}}/user/{{userId}}/loans",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{userId}}",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLoansByManager",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{managerJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{aspireHost}}/user/{{managerId}}/loans",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{managerId}}",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLoan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{userJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{aspireHost}}/user/{{userId}}/loan/{{loanId}}",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{userId}}",
+						"loan",
+						"{{loanId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLoanByManager",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{managerJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{aspireHost}}/user/{{managerId}}/loan/{{loanId}}",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{managerId}}",
+						"loan",
+						"{{loanId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateLoanStatus",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{managerJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"APPROVED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{aspireHost}}/user/{{managerId}}/loan/{{loanId}}/status",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{managerId}}",
+						"loan",
+						"{{loanId}}",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PayInstallment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{userJWT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"installmentAmout\":3000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{aspireHost}}/user/{{userId}}/loan/{{loanId}}/installment",
+					"host": [
+						"{{aspireHost}}"
+					],
+					"path": [
+						"user",
+						"{{userId}}",
+						"loan",
+						"{{loanId}}",
+						"installment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

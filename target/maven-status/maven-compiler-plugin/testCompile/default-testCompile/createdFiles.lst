@@ -1,0 +1,4 @@
+com\shparimi\aspireapp\controllers\test\LoanControllerTest.class
+com\shparimi\aspireapp\service\test\LoanServiceTest.class
+com\shparimi\aspireapp\controllers\test\UserControllerTest.class
+com\shparimi\aspireapp\service\test\UserServiceTest.class

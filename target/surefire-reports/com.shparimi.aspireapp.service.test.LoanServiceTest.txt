@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.shparimi.aspireapp.service.test.LoanServiceTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 s - in com.shparimi.aspireapp.service.test.LoanServiceTest
